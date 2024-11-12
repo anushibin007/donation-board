@@ -29,7 +29,7 @@ export default function RecentBuyers() {
 		<>
 			<Row justify="space-evenly" align="middle">
 				{recentBuyers.map((aBuyer) => (
-					<Col xs={24} sm={8} md={6}>
+					<Col key={aBuyer.id} xs={24} sm={8} md={6}>
 						<BuyerCard buyer={aBuyer} />
 					</Col>
 				))}

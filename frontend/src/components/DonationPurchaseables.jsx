@@ -32,7 +32,7 @@ export default function DonationPurchaseables({ donatedAmount }) {
 		<>
 			<Row justify="space-evenly" align="middle">
 				{donationPurchasables.map((aPurchaseable) => (
-					<Col xs={24} sm={8} md={6}>
+					<Col key={aPurchaseable.id} xs={24} sm={8} md={6}>
 						<DonationPurchaseableCard
 							donatedAmount={donatedAmount}
 							purchaseableItem={aPurchaseable}
