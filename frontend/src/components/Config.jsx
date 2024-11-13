@@ -32,12 +32,18 @@ export default function Config() {
 
 	const updateData = async (updatedData) => {
 		if (!updatedData) {
+			// Fill initial data if there is no data
 			updatedData = {
 				id: 1,
 				totalDonation: 10000,
 				boostAmount: 0,
 				currentDonation: 0,
 			};
+		} else {
+			// Get latest currentDonation first
+			const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/donations/1`);
+			const data = await response.json();
+			updatedData.currentDonation = data.currentDonation;
 		}
 
 		const response = await fetch(`${Constants.BACKEND_SERVER_ROOT}/donations/1`, {
