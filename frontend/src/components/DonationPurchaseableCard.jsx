@@ -28,7 +28,7 @@ export default function DonationPurchaseableCard({
 					</Col>
 					<Col xs={24}>
 						<Progress
-							percent={(currentItemCount / maxPossibleItemCount) * 100}
+							percent={Math.floor((currentItemCount / maxPossibleItemCount) * 100)}
 							status="active"
 						/>
 					</Col>
