@@ -111,7 +111,7 @@ export default function Config() {
 						},
 					]}
 				>
-					<InputNumber />
+					<InputNumber readOnly />
 				</Form.Item>
 				<Form.Item label={null}>
 					<Button type="primary" htmlType="submit">
