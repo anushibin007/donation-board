@@ -30,6 +30,9 @@ jobs:
             - name: Build 🔥
               run: cd frontend && CI='' npm run build
 
+            - name: Fix 404 issue 🐛
+              run: cp ./frontend/dist/index.html ./frontend/dist/404.html
+
             - name: Setup Pages ⚙
               uses: actions/configure-pages@v3
 
