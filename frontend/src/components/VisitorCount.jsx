@@ -22,7 +22,7 @@ export default function VisitorCount() {
 			if (data) {
 				updateCount({
 					id: 1,
-					count: data?.count + 1,
+					count: data?.count + getRandomNumber(),
 				});
 			}
 		}
@@ -53,6 +53,10 @@ export default function VisitorCount() {
 			return true;
 		}
 		return false;
+	};
+
+	const getRandomNumber = () => {
+		return Math.floor(Math.random() * 5) + 1;
 	};
 
 	return (
