@@ -1,8 +1,13 @@
-import { Card, Col, Row } from "antd";
+import { Card, Col, Progress, Row } from "antd";
 const { Meta } = Card;
 
-export default function DonationPurchaseableCard({ donatedAmount, purchaseableItem }) {
-	const itemCount = Math.floor(donatedAmount / purchaseableItem?.cost);
+export default function DonationPurchaseableCard({
+	donatedAmount,
+	totalDonation,
+	purchaseableItem,
+}) {
+	const currentItemCount = Math.floor(donatedAmount / purchaseableItem?.cost);
+	const maxPossibleItemCount = Math.floor(totalDonation / purchaseableItem?.cost);
 	return (
 		<>
 			<Card
@@ -19,7 +24,13 @@ export default function DonationPurchaseableCard({ donatedAmount, purchaseableIt
 						/>
 					</Col>
 					<Col xs={16} sm={18} md={20}>
-						{`${itemCount} ${purchaseableItem.item}`}
+						{`${currentItemCount} ${purchaseableItem.item}`}
+					</Col>
+					<Col xs={24}>
+						<Progress
+							percent={(currentItemCount / maxPossibleItemCount) * 100}
+							status="active"
+						/>
 					</Col>
 				</Row>
 			</Card>

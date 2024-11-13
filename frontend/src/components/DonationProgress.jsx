@@ -57,6 +57,7 @@ export default function DonationProgress() {
 				<Col xs={22}>
 					<DonationPurchaseables
 						donatedAmount={donationData?.currentDonation + donationData?.boostAmount}
+						totalDonation={donationData?.totalDonation}
 					/>
 				</Col>
 				<Col xs={22}>

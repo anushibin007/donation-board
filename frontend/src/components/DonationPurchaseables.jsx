@@ -1,7 +1,7 @@
 import { Col, Row } from "antd";
 import DonationPurchaseableCard from "./DonationPurchaseableCard";
 
-export default function DonationPurchaseables({ donatedAmount }) {
+export default function DonationPurchaseables({ donatedAmount, totalDonation }) {
 	const donationPurchasables = [
 		{
 			id: 1,
@@ -35,6 +35,7 @@ export default function DonationPurchaseables({ donatedAmount }) {
 					<Col key={aPurchaseable.id} xs={24} sm={8} md={6}>
 						<DonationPurchaseableCard
 							donatedAmount={donatedAmount}
+							totalDonation={totalDonation}
 							purchaseableItem={aPurchaseable}
 						/>
 					</Col>
