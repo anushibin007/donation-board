@@ -1,3 +1,5 @@
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { Button, Form, Input, InputNumber } from "antd";
 import Constants from "../utils/Constants";
 
@@ -18,6 +20,8 @@ export default function Transactions() {
 	const onFinish = (values) => {
 		console.log("Success:", values);
 		updateData(values);
+		form.resetFields();
+		toast.success("Transaction added successfully!");
 	};
 	const onFinishFailed = (errorInfo) => {
 		console.log("Failed:", errorInfo);
@@ -84,6 +88,17 @@ export default function Transactions() {
 					</Button>
 				</Form.Item>
 			</Form>
+			<ToastContainer
+				position="top-right"
+				autoClose={5000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				pauseOnHover
+				theme="light"
+			/>
 		</>
 	);
 }
