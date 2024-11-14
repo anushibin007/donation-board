@@ -45,41 +45,52 @@ export default function DonationProgress() {
 
 	return (
 		<>
-			<Row justify="space-evenly" gutter={[4, 20]}>
-				<Col>
-					<Title>
-						Donation Goal:{" "}
-						{`₹${donationData?.currentDonation + donationData?.boostAmount} / ₹${
-							donationData?.totalDonation
-						}`}
-					</Title>
-				</Col>
-				<Col xs={22}>
-					<DonationPurchaseables
-						donatedAmount={donationData?.currentDonation + donationData?.boostAmount}
-						totalDonation={donationData?.totalDonation}
-					/>
-				</Col>
-				<Col xs={22}>
-					<Progress
-						size={{ height: 50 }}
-						percent={
-							((donationData?.currentDonation + donationData?.boostAmount) /
-								donationData?.totalDonation) *
-							100
-						}
-						percentPosition={{
-							align: "center",
-							type: "inner",
-						}}
-						status="active"
-						strokeColor={{
-							from: "#108ee9",
-							to: "#87d068",
-						}}
-					/>
-				</Col>
-			</Row>
+			{donationData && (
+				<Row justify="space-evenly" gutter={[4, 20]}>
+					<>
+						<Col>
+							<Title>
+								Donation Goal:{" "}
+								{`₹${
+									donationData?.currentDonation + donationData?.boostAmount
+								} / ₹${donationData?.totalDonation}`}
+							</Title>
+						</Col>
+						<Col xs={22}>
+							<DonationPurchaseables
+								donatedAmount={
+									donationData?.currentDonation + donationData?.boostAmount
+								}
+								totalDonation={donationData?.totalDonation}
+							/>
+						</Col>
+						<Col xs={22}>
+							<Progress
+								size={{ height: 50 }}
+								percent={
+									((donationData?.currentDonation + donationData?.boostAmount) /
+										donationData?.totalDonation) *
+									100
+								}
+								percentPosition={{
+									align: "center",
+									type: "inner",
+								}}
+								status="active"
+								strokeColor={{
+									from: "#108ee9",
+									to: "#87d068",
+								}}
+							/>
+						</Col>
+					</>
+				</Row>
+			)}
+			{!donationData && (
+				<>
+					<div>Oops... Couldn't retrieve data. Are you on the network?</div>
+				</>
+			)}
 		</>
 	);
 }

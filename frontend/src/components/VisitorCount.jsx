@@ -61,20 +61,25 @@ export default function VisitorCount() {
 
 	return (
 		<>
-			<Row justify="space-evenly">
-				<Col xs={24}>
-					<Text>Lucky visitor number: {visitorCount}</Text>
-				</Col>
-				{luckyWinner() && (
-					<>
+			{visitorCount > 1 && (
+				<>
+					<Row justify="space-evenly">
 						<Col xs={24}>
-							<Text type="danger">
-								You won a lucky prize!!! Rush to the counter with this screenshot!!!
-							</Text>
+							<Text>Lucky visitor number: {visitorCount}</Text>
 						</Col>
-					</>
-				)}
-			</Row>
+						{luckyWinner() && (
+							<>
+								<Col xs={24}>
+									<Text type="danger">
+										You won a lucky prize!!! Rush to the counter with this
+										screenshot!!!
+									</Text>
+								</Col>
+							</>
+						)}
+					</Row>
+				</>
+			)}
 		</>
 	);
 }
