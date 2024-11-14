@@ -4,7 +4,7 @@ import Constants from "../utils/Constants";
 const { Text } = Typography;
 
 export default function VisitorCount() {
-	const [visitorCount, setVisitorCount] = useState(50);
+	const [visitorCount, setVisitorCount] = useState(1);
 
 	useEffect(() => {
 		fetchVisitorCount();
