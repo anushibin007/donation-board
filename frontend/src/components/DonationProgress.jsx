@@ -67,11 +67,11 @@ export default function DonationProgress() {
 						<Col xs={22}>
 							<Progress
 								size={{ height: 50 }}
-								percent={
+								percent={Math.floor(
 									((donationData?.currentDonation + donationData?.boostAmount) /
 										donationData?.totalDonation) *
-									100
-								}
+										100
+								)}
 								percentPosition={{
 									align: "center",
 									type: "inner",
